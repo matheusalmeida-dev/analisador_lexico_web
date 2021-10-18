@@ -14,10 +14,10 @@ def procura(item):
         return 'Palavra reservada'
     elif item in operadores:
         return 'Operador'
-    elif item in inteiros:
-        return 'Inteiro'
     elif item in booleanos:
         return 'Booleano'
+    elif item in inteiros:
+        return 'Constante'
     else:
         return 'Constante'
 
@@ -58,7 +58,7 @@ def traduz(linha):
             w.writerow(["'"+token, identificacao, tamanho, '(0,{})'.format(posicao)])
         else:
             w.writerow([token, identificacao, tamanho, '(0,{})'.format(posicao)])
-    w.writerow([linha[-1], 'Terminador', 1, '(0,{})'.format(len(linha)-1)])
+
     arq = open('simbolos.csv', 'w', newline='', encoding='utf-8')
     w = csv.writer(arq)
     w.writerow(['INDICE', 'SiMBOLO'])
